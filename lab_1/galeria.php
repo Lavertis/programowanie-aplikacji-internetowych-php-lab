@@ -1,5 +1,5 @@
 <?php
-function createGallery($rows, $columns): string
+function createGallery($rows, $columns, $photosCount): string
 {
     $galleryHtml = "<table class='table text-center'>";
     $index = 1;
@@ -10,6 +10,8 @@ function createGallery($rows, $columns): string
             $fileName = "obraz$index";
             $galleryHtml .= "<td><img src='thumbnails/$fileName.JPG' alt='$fileName'></td>";
             $index++;
+            if ($index > $photosCount)
+                $index = 1;
         }
         $galleryHtml .= "</tr>";
     }
@@ -37,7 +39,7 @@ function createGallery($rows, $columns): string
     <h1 class="text-center mb-4">Galeria zdjęć</h1>
     <table>
         <?php
-        $gallery = createGallery(2, 5);
+        $gallery = createGallery(3, 4, 10);
         print $gallery;
         ?>
     </table>
