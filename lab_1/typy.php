@@ -27,146 +27,148 @@ $var12 = new DateTime('NOW');
 <body>
 <div class="container my-4">
     <h1 class="text-center mb-4">Typy zmiennych w PHP</h1>
-    <table class="table text-center table-striped">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Content</th>
-            <th>Content displayed</th>
-            <th>is_bool()</th>
-            <th>is_int()</th>
-            <th>is_numeric()</th>
-            <th>is_string()</th>
-            <th>is_array()</th>
-            <th>is_object()</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        echo "<tr><td>var1</td>" .
-            "<td>1234</td>" .
-            "<td>$var1</td>" .
-            "</td><td>" . (is_bool($var1) ? "true" : "false") .
-            "</td><td>" . (is_int($var1) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var1) ? "true" : "false") .
-            "</td><td>" . (is_string($var1) ? "true" : "false") .
-            "</td><td>" . (is_array($var1) ? "true" : "false") .
-            "</td><td>" . (is_object($var1) ? "true" : "false") . "</td></tr>";
+    <div class="overflow-auto">
+        <table class="table text-center table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Content</th>
+                <th>Content displayed</th>
+                <th>is_bool()</th>
+                <th>is_int()</th>
+                <th>is_numeric()</th>
+                <th>is_string()</th>
+                <th>is_array()</th>
+                <th>is_object()</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            echo "<tr><td>var1</td>" .
+                "<td>1234</td>" .
+                "<td>$var1</td>" .
+                "</td><td>" . (is_bool($var1) ? "true" : "false") .
+                "</td><td>" . (is_int($var1) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var1) ? "true" : "false") .
+                "</td><td>" . (is_string($var1) ? "true" : "false") .
+                "</td><td>" . (is_array($var1) ? "true" : "false") .
+                "</td><td>" . (is_object($var1) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var2</td>" .
-            "<td>567.789</td>" .
-            "<td>$var2</td>" .
-            "</td><td>" . (is_bool($var2) ? "true" : "false") .
-            "</td><td>" . (is_int($var2) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var2) ? "true" : "false") .
-            "</td><td>" . (is_string($var2) ? "true" : "false") .
-            "</td><td>" . (is_array($var2) ? "true" : "false") .
-            "</td><td>" . (is_object($var2) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var2</td>" .
+                "<td>567.789</td>" .
+                "<td>$var2</td>" .
+                "</td><td>" . (is_bool($var2) ? "true" : "false") .
+                "</td><td>" . (is_int($var2) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var2) ? "true" : "false") .
+                "</td><td>" . (is_string($var2) ? "true" : "false") .
+                "</td><td>" . (is_array($var2) ? "true" : "false") .
+                "</td><td>" . (is_object($var2) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var3</td>" .
-            "<td>1</td>" .
-            "<td>$var3</td>" .
-            "</td><td>" . (is_bool($var3) ? "true" : "false") .
-            "</td><td>" . (is_int($var3) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var3) ? "true" : "false") .
-            "</td><td>" . (is_string($var3) ? "true" : "false") .
-            "</td><td>" . (is_array($var3) ? "true" : "false") .
-            "</td><td>" . (is_object($var3) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var3</td>" .
+                "<td>1</td>" .
+                "<td>$var3</td>" .
+                "</td><td>" . (is_bool($var3) ? "true" : "false") .
+                "</td><td>" . (is_int($var3) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var3) ? "true" : "false") .
+                "</td><td>" . (is_string($var3) ? "true" : "false") .
+                "</td><td>" . (is_array($var3) ? "true" : "false") .
+                "</td><td>" . (is_object($var3) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var4</td>" .
-            "<td>0</td>" .
-            "<td>$var4</td>" .
-            "</td><td>" . (is_bool($var4) ? "true" : "false") .
-            "</td><td>" . (is_int($var4) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var4) ? "true" : "false") .
-            "</td><td>" . (is_string($var4) ? "true" : "false") .
-            "</td><td>" . (is_array($var4) ? "true" : "false") .
-            "</td><td>" . (is_object($var4) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var4</td>" .
+                "<td>0</td>" .
+                "<td>$var4</td>" .
+                "</td><td>" . (is_bool($var4) ? "true" : "false") .
+                "</td><td>" . (is_int($var4) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var4) ? "true" : "false") .
+                "</td><td>" . (is_string($var4) ? "true" : "false") .
+                "</td><td>" . (is_array($var4) ? "true" : "false") .
+                "</td><td>" . (is_object($var4) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var5</td>" .
-            "<td>true</td>" .
-            "<td>$var5</td>" .
-            "</td><td>" . (is_bool($var5) ? "true" : "false") .
-            "</td><td>" . (is_int($var5) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var5) ? "true" : "false") .
-            "</td><td>" . (is_string($var5) ? "true" : "false") .
-            "</td><td>" . (is_array($var5) ? "true" : "false") .
-            "</td><td>" . (is_object($var5) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var5</td>" .
+                "<td>true</td>" .
+                "<td>$var5</td>" .
+                "</td><td>" . (is_bool($var5) ? "true" : "false") .
+                "</td><td>" . (is_int($var5) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var5) ? "true" : "false") .
+                "</td><td>" . (is_string($var5) ? "true" : "false") .
+                "</td><td>" . (is_array($var5) ? "true" : "false") .
+                "</td><td>" . (is_object($var5) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var6</td>" .
-            "<td>\"0\"</td>" .
-            "<td>$var6</td>" .
-            "</td><td>" . (is_bool($var6) ? "true" : "false") .
-            "</td><td>" . (is_int($var6) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var6) ? "true" : "false") .
-            "</td><td>" . (is_string($var6) ? "true" : "false") .
-            "</td><td>" . (is_array($var6) ? "true" : "false") .
-            "</td><td>" . (is_object($var6) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var6</td>" .
+                "<td>\"0\"</td>" .
+                "<td>$var6</td>" .
+                "</td><td>" . (is_bool($var6) ? "true" : "false") .
+                "</td><td>" . (is_int($var6) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var6) ? "true" : "false") .
+                "</td><td>" . (is_string($var6) ? "true" : "false") .
+                "</td><td>" . (is_array($var6) ? "true" : "false") .
+                "</td><td>" . (is_object($var6) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var7</td>" .
-            "<td>\"Typy w PHP\"</td>" .
-            "<td>$var7</td>" .
-            "</td><td>" . (is_bool($var7) ? "true" : "false") .
-            "</td><td>" . (is_int($var7) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var7) ? "true" : "false") .
-            "</td><td>" . (is_string($var7) ? "true" : "false") .
-            "</td><td>" . (is_array($var7) ? "true" : "false") .
-            "</td><td>" . (is_object($var7) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var7</td>" .
+                "<td>\"Typy w PHP\"</td>" .
+                "<td>$var7</td>" .
+                "</td><td>" . (is_bool($var7) ? "true" : "false") .
+                "</td><td>" . (is_int($var7) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var7) ? "true" : "false") .
+                "</td><td>" . (is_string($var7) ? "true" : "false") .
+                "</td><td>" . (is_array($var7) ? "true" : "false") .
+                "</td><td>" . (is_object($var7) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var8</td>" .
-            "<td>[1, 2, 3, 4]</td>" .
-            "<td>" . implode(", ", $var8) . "</td>" .
-            "</td><td>" . (is_bool($var8) ? "true" : "false") .
-            "</td><td>" . (is_int($var8) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var8) ? "true" : "false") .
-            "</td><td>" . (is_string($var8) ? "true" : "false") .
-            "</td><td>" . (is_array($var8) ? "true" : "false") .
-            "</td><td>" . (is_object($var8) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var8</td>" .
+                "<td>[1, 2, 3, 4]</td>" .
+                "<td>" . implode(", ", $var8) . "</td>" .
+                "</td><td>" . (is_bool($var8) ? "true" : "false") .
+                "</td><td>" . (is_int($var8) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var8) ? "true" : "false") .
+                "</td><td>" . (is_string($var8) ? "true" : "false") .
+                "</td><td>" . (is_array($var8) ? "true" : "false") .
+                "</td><td>" . (is_object($var8) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var9</td>" .
-            "<td>[]</td>" .
-            "<td>" . implode(", ", $var9) . "</td>" .
-            "</td><td>" . (is_bool($var9) ? "true" : "false") .
-            "</td><td>" . (is_int($var9) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var9) ? "true" : "false") .
-            "</td><td>" . (is_string($var9) ? "true" : "false") .
-            "</td><td>" . (is_array($var9) ? "true" : "false") .
-            "</td><td>" . (is_object($var9) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var9</td>" .
+                "<td>[]</td>" .
+                "<td>" . implode(", ", $var9) . "</td>" .
+                "</td><td>" . (is_bool($var9) ? "true" : "false") .
+                "</td><td>" . (is_int($var9) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var9) ? "true" : "false") .
+                "</td><td>" . (is_string($var9) ? "true" : "false") .
+                "</td><td>" . (is_array($var9) ? "true" : "false") .
+                "</td><td>" . (is_object($var9) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var10</td>" .
-            "<td>[\"zielony\", \"czerwony\", \"niebieski\"]</td>" .
-            "<td>" . implode(", ", $var10) . "</td>" .
-            "</td><td>" . (is_bool($var10) ? "true" : "false") .
-            "</td><td>" . (is_int($var10) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var10) ? "true" : "false") .
-            "</td><td>" . (is_string($var10) ? "true" : "false") .
-            "</td><td>" . (is_array($var10) ? "true" : "false") .
-            "</td><td>" . (is_object($var10) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var10</td>" .
+                "<td>[\"zielony\", \"czerwony\", \"niebieski\"]</td>" .
+                "<td>" . implode(", ", $var10) . "</td>" .
+                "</td><td>" . (is_bool($var10) ? "true" : "false") .
+                "</td><td>" . (is_int($var10) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var10) ? "true" : "false") .
+                "</td><td>" . (is_string($var10) ? "true" : "false") .
+                "</td><td>" . (is_array($var10) ? "true" : "false") .
+                "</td><td>" . (is_object($var10) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var11</td>" .
-            "<td>[\"Agata\", \"Agatowska\", 4.67, true]</td>" .
-            "<td>" . implode(", ", $var11) . "</td>" .
-            "</td><td>" . (is_bool($var11) ? "true" : "false") .
-            "</td><td>" . (is_int($var11) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var11) ? "true" : "false") .
-            "</td><td>" . (is_string($var11) ? "true" : "false") .
-            "</td><td>" . (is_array($var11) ? "true" : "false") .
-            "</td><td>" . (is_object($var11) ? "true" : "false") . "</td></tr>";
+            echo "<tr><td>var11</td>" .
+                "<td>[\"Agata\", \"Agatowska\", 4.67, true]</td>" .
+                "<td>" . implode(", ", $var11) . "</td>" .
+                "</td><td>" . (is_bool($var11) ? "true" : "false") .
+                "</td><td>" . (is_int($var11) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var11) ? "true" : "false") .
+                "</td><td>" . (is_string($var11) ? "true" : "false") .
+                "</td><td>" . (is_array($var11) ? "true" : "false") .
+                "</td><td>" . (is_object($var11) ? "true" : "false") . "</td></tr>";
 
-        echo "<tr><td>var12</td>" .
-            "<td>new DateTime('NOW')</td>" .
-            "<td>" . $var12->format('d-m-Y H:i:s') . "</td>" .
-            "</td><td>" . (is_bool($var12) ? "true" : "false") .
-            "</td><td>" . (is_int($var12) ? "true" : "false") .
-            "</td><td>" . (is_numeric($var12) ? "true" : "false") .
-            "</td><td>" . (is_string($var12) ? "true" : "false") .
-            "</td><td>" . (is_array($var12) ? "true" : "false") .
-            "</td><td>" . (is_object($var12) ? "true" : "false") . "</td></tr>";
-        ?>
-        </tbody>
-    </table>
+            echo "<tr><td>var12</td>" .
+                "<td>new DateTime('NOW')</td>" .
+                "<td>" . $var12->format('d-m-Y H:i:s') . "</td>" .
+                "</td><td>" . (is_bool($var12) ? "true" : "false") .
+                "</td><td>" . (is_int($var12) ? "true" : "false") .
+                "</td><td>" . (is_numeric($var12) ? "true" : "false") .
+                "</td><td>" . (is_string($var12) ? "true" : "false") .
+                "</td><td>" . (is_array($var12) ? "true" : "false") .
+                "</td><td>" . (is_object($var12) ? "true" : "false") . "</td></tr>";
+            ?>
+            </tbody>
+        </table>
+    </div>
 
-    <table class="table w-auto mx-auto text-center table-striped">
+    <table class="table w-auto mx-auto text-center table-striped mt-4 mt-lg-2">
         <thead>
         <tr>
             <th>Expression</th>
