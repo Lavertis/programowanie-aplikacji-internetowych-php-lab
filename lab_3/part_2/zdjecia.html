@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Wysyłanie zdjęć</title>
+</head>
+<body>
+<div>
+    <form action="zdjecia.php" enctype="multipart/form-data" method="post">
+        <table>
+            <tr>
+                <td><label for="height">Max height</label></td>
+                <td><input id="height" max="350" min="100" name="height" type="number"></td>
+            </tr>
+            <tr>
+                <td><label for="width">Max width</label></td>
+                <td><input id="width" max="350" min="100" name="width" type="number"></td>
+            </tr>
+            <tr>
+                <td><label for="photo">File .jpg</label></td>
+                <td><input id="photo" name="photo" type="file"></td>
+            </tr>
+        </table>
+        <input name="save" type="submit" value="Save">
+    </form>
+</div>
+</body>
+</html>
