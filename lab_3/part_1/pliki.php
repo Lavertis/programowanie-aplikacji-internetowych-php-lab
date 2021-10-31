@@ -76,6 +76,14 @@ include_once "funkcje.php";
         actionSwitcher();
         ?>
     </div>
+    <br><br>
+    <div>
+        <?php
+        foreach ($_SERVER as $key => $value) {
+            echo "$key=$value<br>";
+        }
+        ?>
+    </div>
 
 </div>
 </body>
