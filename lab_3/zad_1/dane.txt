@@ -1,0 +1,3 @@
+Agatowska 31 Great Britain agata@gmail.com Java,C#,HTML,CSS eurocard
+Markowski 43 Poland markowski@gmail.com C,CPP,PHP visa
+Miśkiewicz 47 Germany miskiewicz@gmail.com CSS,XML transfer

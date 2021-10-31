@@ -1,3 +1,6 @@
+<?php
+include_once "funkcje.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +34,7 @@
             </tr>
             <tr>
                 <td><label for="email">Adres e-mail</label></td>
-                <td><input type="email" name="email" id="email"></td>
+                <td><input type="text" name="email" id="email"></td>
             </tr>
         </table>
 
@@ -58,14 +61,22 @@
         <br>
 
         <div>
-            <button type="reset" name="button" value="clear">Wyczyść</button>
-            <button type="submit" name="button" value="save">Zapisz</button>
-            <button type="submit" name="button" value="show">Pokaż</button>
-            <button type="submit" name="button" value="php">PHP</button>
-            <button type="submit" name="button" value="cpp">CPP</button>
-            <button type="submit" name="button" value="java">Java</button>
+            <button type="reset" name="reset" value="clear">Wyczyść</button>
+            <button type="submit" name="submit" value="save">Zapisz</button>
+            <button type="submit" name="submit" value="show">Pokaż</button>
+            <button type="submit" name="submit" value="php">PHP</button>
+            <button type="submit" name="submit" value="cpp">CPP</button>
+            <button type="submit" name="submit" value="java">Java</button>
         </div>
     </form>
+    <br>
+
+    <div>
+        <?php
+        actionSwitcher();
+        ?>
+    </div>
+
 </div>
 </body>
 </html>
