@@ -1,0 +1,5 @@
+Agatowska 14 Great Britain agata@gmail.com Java,C#,HTML,CSS eurocard
+Markowski 43 Poland markowski@gmail.com C,CPP,PHP visa
+Miśkiewicz 16 Germany miskiewicz@gmail.com CSS,XML transfer
+Korga 55 Poland korga@gmail.com PHP transfer
+Miłosz 50 Poland milosz@gmail.com CPP visa
