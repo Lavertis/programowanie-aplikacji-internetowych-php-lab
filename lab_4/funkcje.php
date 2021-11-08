@@ -22,7 +22,35 @@ function actionSwitcher()
         case "java":
             showOrdersWithCourse("java");
             break;
+        case "statistics":
+            showStatistics();
+            break;
     }
+}
+
+function showStatistics()
+{
+    $array = file(filePath) or die("Unable to open file!");
+    $orderCount = 0;
+    $lessThan18Count = 0;
+    $moreOrEqualThan50Count = 0;
+    foreach ($array as $line) {
+        $age = explode(" ", $line)[1];
+
+        if ($age !== "")
+            $orderCount++;
+        else
+            continue;
+
+        if ($age < 18)
+            $lessThan18Count++;
+        else if ($age >= 50)
+            $moreOrEqualThan50Count++;
+    }
+
+    echo "<p>Liczba wszystkich zamówień: $orderCount</p>";
+    echo "<p>Liczba zamówień od osób w wieku < 18 lat: $lessThan18Count</p>";
+    echo "<p>Liczba zamówień od osób w wieku >= 50 lat: $moreOrEqualThan50Count</p>";
 }
 
 function validateData(): array
@@ -31,7 +59,7 @@ function validateData(): array
         'surname' => ['filter' => FILTER_VALIDATE_REGEXP, 'options' => ['regexp' => '/^[A-Z]{1}[a-ząęłńśćźżó-]{1,25}$/']],
         'age' => ['filter' => FILTER_VALIDATE_INT, 'options' => ['min_range' => 12, 'max_range' => 40]],
         'country' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
-        'email' => ['filter' => FILTER_VALIDATE_REGEXP, 'options' => ['regexp' => '/^[^@]+@[^@]+\.[^@]+$/']],
+        'email' => FILTER_VALIDATE_EMAIL,
         'courses' => ['filter' => FILTER_SANITIZE_FULL_SPECIAL_CHARS, 'flags' => FILTER_REQUIRE_ARRAY],
         'payment' => ['filter' => FILTER_VALIDATE_REGEXP, 'options' => ['regexp' => '/^(eurocard|visa|transfer)$/']]
     ];

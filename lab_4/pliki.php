@@ -67,6 +67,7 @@ include_once "funkcje.php";
             <button type="submit" name="submit" value="php">PHP</button>
             <button type="submit" name="submit" value="cpp">CPP</button>
             <button type="submit" name="submit" value="java">Java</button>
+            <button type="submit" name="submit" value="statistics">Statystyki</button>
         </div>
     </form>
     <br>
