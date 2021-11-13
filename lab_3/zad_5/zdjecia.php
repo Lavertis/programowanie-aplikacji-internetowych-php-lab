@@ -1,6 +1,6 @@
 <?php
 const imgDir = "./images/";
-const thumbnailDir = "./images/thumbnails/";
+const thumbnailDir = "./thumbnails/";
 
 function showGallery()
 {
