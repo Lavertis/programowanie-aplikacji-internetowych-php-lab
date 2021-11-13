@@ -8,17 +8,22 @@ function showPhotoLinks()
 
 function redirectToPhotoLinksPage()
 {
-    if (!is_uploaded_file($_FILES["photo"]["tmp_name"]))
-        return;
-
-    $type = $_FILES["photo"]["type"];
-    if ($type == "image/jpeg") {
-        $fileName = managePhoto();
-        header('Content-Type: image/jpeg');
-        header("location:zdjecia.php?pic=$fileName");
-    } else {
+    if (!is_uploaded_file($_FILES["photo"]["tmp_name"])) {
         header('location:zdjecia.html');
+        return;
     }
+    if (!isset($_POST["width"]) || !isset($_POST["height"]) || $_POST["width"] == "" || $_POST["height"] == "") {
+        header('location:zdjecia.html');
+        return;
+    }
+    if ($_FILES["photo"]["type"] != "image/jpeg") {
+        header('location:zdjecia.html');
+        return;
+    }
+
+    $fileName = managePhoto();
+    header('Content-Type: image/jpeg');
+    header("location:zdjecia.php?pic=$fileName");
 }
 
 function managePhoto(): string
