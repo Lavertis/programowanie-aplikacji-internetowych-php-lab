@@ -74,6 +74,9 @@ include_once "funkcje.php";
 
     <div>
         <?php
+        if (!file_exists(filePath))
+            file_put_contents(filePath, "");
+
         actionSwitcher();
         ?>
     </div>

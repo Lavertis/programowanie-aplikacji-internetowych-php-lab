@@ -119,8 +119,13 @@ function showAllOrders()
 function showOrdersWithCourse($course)
 {
     $array = file(filePath) or die("Unable to open file!");
+    $counter = 0;
     foreach ($array as $line) {
-        if (stripos($line, $course))
+        if (stripos($line, $course)) {
             echo "<div>$line</div>";
+            $counter++;
+        }
     }
+    if ($counter === 0)
+        echo "<div>Brak</div>";
 }
