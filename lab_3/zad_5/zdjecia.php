@@ -1,12 +1,14 @@
 <?php
+const imgDir = "./images/";
+const thumbnailDir = "./images/thumbnails/";
+
 function showGallery()
 {
-    $imgDir = $_SERVER["DOCUMENT_ROOT"] . "/images";
-    $files = glob($imgDir . "/*.jpg");
+    $files = glob(imgDir . "*.jpg");
     foreach ($files as $file) {
         $path_parts = pathinfo($file);
-        $thumbnailPath = "/images/thumbnails/" . $path_parts['filename'] . "_thumbnail.jpg";
-        $photoPath = "/images/" . $path_parts['filename'] . ".jpg";
+        $thumbnailPath = thumbnailDir . $path_parts['filename'] . "_thumbnail.jpg";
+        $photoPath = imgDir . $path_parts['filename'] . ".jpg";
         echo "<a href='$photoPath'><img src='$thumbnailPath' alt='" . $path_parts['basename'] . "'></a>";
     }
 
@@ -17,13 +19,25 @@ function showGallery()
 
 function manageUploadedPhoto()
 {
-    if (!is_uploaded_file($_FILES["photo"]["tmp_name"]))
+    if (!is_uploaded_file($_FILES["photo"]["tmp_name"])) {
+        header('location:zdjecia.html');
         return;
-    if ($_FILES["photo"]["type"] != "image/jpeg")
+    }
+    if (!isset($_POST["width"]) || !isset($_POST["height"]) || $_POST["width"] == "" || $_POST["height"] == "") {
+        header('location:zdjecia.html');
         return;
+    }
+    if ($_FILES["photo"]["type"] != "image/jpeg") {
+        header('location:zdjecia.html');
+        return;
+    }
+    if (!file_exists(imgDir))
+        mkdir(imgDir);
+    if (!file_exists(thumbnailDir))
+        mkdir(thumbnailDir);
 
     $fileName = strtolower($_FILES['photo']['name']);
-    $filePath = $_SERVER["DOCUMENT_ROOT"] . "/images/$fileName";
+    $filePath = imgDir . $fileName;
     move_uploaded_file($_FILES['photo']['tmp_name'], $filePath);
     $maxWidth = $_POST['width']; // szerokość preferowana przez użytkownika
     $maxHeight = $_POST['height']; // wysokość preferowana przez użytkownika
@@ -50,7 +64,7 @@ function createThumbnail($newW, $newH, $filePath)
     $image = imagecreatefromjpeg($filePath);
     $thumbnail = imagescale($image, $newW, $newH);
     $name = pathinfo($fileName)["filename"];
-    $thumbnailPath = $_SERVER["DOCUMENT_ROOT"] . "/images/thumbnails/$name" . "_thumbnail.jpg";
+    $thumbnailPath = thumbnailDir . $name . "_thumbnail.jpg";
     imagejpeg($thumbnail, $thumbnailPath, 100);
 }
 
