@@ -39,7 +39,7 @@ class RegistrationForm
     {
         $args = [
             'username' => ['filter' => FILTER_VALIDATE_REGEXP, 'options' => ['regexp' => '/^[A-Za-z][A-Za-z0-9_]{2,25}$/']],
-            'fullName' => ['filter' => FILTER_VALIDATE_REGEXP, 'options' => ['regexp' => '/^[0-9A-Za-ząęłńśćźżó]{2,25}[ ]?[0-9A-Za-ząęłńśćźżó]{2,25}$/']],
+            'fullName' => ['filter' => FILTER_VALIDATE_REGEXP, 'options' => ['regexp' => '/^[A-Z][a-ząęłńśćźżó]{1,25}([ ][A-Z][a-ząęłńśćźżó]{1,25})?$/']],
             'password' => ['filter' => FILTER_VALIDATE_REGEXP, 'options' => ['regexp' => '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/']],
             'email' => FILTER_VALIDATE_EMAIL
         ];
