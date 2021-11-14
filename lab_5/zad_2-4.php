@@ -26,14 +26,22 @@ include_once "classes/RegistrationForm.php";
                 echo "<p>Poprawne dane rejestracji:</p>";
                 $user->show();
                 $user->saveToJson();
+                $user->saveToXml();
             }
         }
         ?>
     </div>
     <br>
     <div>
+        <h2>Users from JSON</h2>
         <?php
-        User::showAllUsers();
+        User::showAllUsersFromJson();
+        ?>
+    </div>
+    <div>
+        <h2>Users from XML</h2>
+        <?php
+        User::showAllUsersFromXml();
         ?>
     </div>
 </div>

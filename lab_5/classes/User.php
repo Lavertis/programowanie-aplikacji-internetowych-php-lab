@@ -39,12 +39,25 @@ class User
             "status " . $this->getStatus();
     }
 
-    public static function showAllUsers()
+    public static function showAllUsersFromJson()
     {
         $tab = json_decode(file_get_contents(USERS_JSON));
         foreach ($tab as $val) {
             echo "<p>" . $val->username . " " . $val->fullName . " " . $val->dateCreated . "</p>";
         }
+    }
+
+    public static function showAllUsersFromXml()
+    {
+        $allUsers = simplexml_load_file('users.xml');
+        echo "<ul>";
+        foreach ($allUsers as $user):
+            $username = $user->username;
+            $fullName = $user->fullName;
+            $dateCreated = $user->dateCreated;
+            echo "<li>$username, $fullName, $dateCreated</li>";
+        endforeach;
+        echo "</ul>";
     }
 
     function toArray(): array
@@ -62,8 +75,22 @@ class User
     function saveToJson()
     {
         $tab = json_decode(file_get_contents(USERS_JSON), true);
-        array_unshift($tab, $this->toArray());
+        array_push($tab, $this->toArray());
         file_put_contents(USERS_JSON, json_encode($tab));
+    }
+
+    function saveToXml()
+    {
+        $xml = simplexml_load_file('users.xml'); // wczytujemy plik XML:
+        $xmlCopy = $xml->addChild("user"); // dodajemy nowy element user (jako child)
+        // do elementu dodajemy jego właściwości o określonej nazwie i treści
+        $xmlCopy->addChild("username", $this->getUserName());
+        $xmlCopy->addChild("password", $this->getPassword());
+        $xmlCopy->addChild("fullName", $this->getFullName());
+        $xmlCopy->addChild("email", $this->getEmail());
+        $xmlCopy->addChild("dateCreated", $this->getDateCreated());
+        $xmlCopy->addChild("status", $this->getStatus());
+        $xml->asXML('users.xml'); // zapisujemy zmodyfikowany XML do pliku:
     }
 
     /**
