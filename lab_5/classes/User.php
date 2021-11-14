@@ -1,4 +1,5 @@
 <?php
+const USERS_JSON = "users.json";
 
 class User
 {
@@ -36,6 +37,33 @@ class User
             $this->getEmail() . " " .
             $this->getDateCreated() . " " .
             "status " . $this->getStatus();
+    }
+
+    public static function showAllUsers()
+    {
+        $tab = json_decode(file_get_contents(USERS_JSON));
+        foreach ($tab as $val) {
+            echo "<p>" . $val->username . " " . $val->fullName . " " . $val->dateCreated . "</p>";
+        }
+    }
+
+    function toArray(): array
+    {
+        return [
+            "username" => $this->getUserName(),
+            "password" => $this->getPassword(),
+            "fullName" => $this->getFullName(),
+            "email" => $this->getEmail(),
+            "dateCreated" => $this->getDateCreated(),
+            "status" => $this->getStatus()
+        ];
+    }
+
+    function saveToJson()
+    {
+        $tab = json_decode(file_get_contents(USERS_JSON), true);
+        array_unshift($tab, $this->toArray());
+        file_put_contents(USERS_JSON, json_encode($tab));
     }
 
     /**

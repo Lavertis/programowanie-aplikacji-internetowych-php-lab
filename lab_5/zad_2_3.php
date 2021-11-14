@@ -25,8 +25,15 @@ include_once "classes/RegistrationForm.php";
             else {
                 echo "<p>Poprawne dane rejestracji:</p>";
                 $user->show();
+                $user->saveToJson();
             }
         }
+        ?>
+    </div>
+    <br>
+    <div>
+        <?php
+        User::showAllUsers();
         ?>
     </div>
 </div>
