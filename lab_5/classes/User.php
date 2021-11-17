@@ -25,8 +25,7 @@ class User
         $this->password = password_hash($password, PASSWORD_BCRYPT);
         $this->fullName = $fullName;
         $this->email = $email;
-        $this->dateCreated = (new DateTime("NOW"));
-        $this->dateCreated->format("Y-m-d");
+        $this->dateCreated = new DateTime();
         $this->status = self::STATUS_USER;
     }
 
