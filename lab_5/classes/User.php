@@ -1,10 +1,11 @@
 <?php
-const USERS_JSON = "users.json";
 
 class User
 {
     const STATUS_ADMIN = 0;
     const STATUS_USER = 1;
+    const USERS_JSON = "users.json";
+    const USERS_XML = "users.xml";
 
     private $userName;
     private $password;
@@ -40,7 +41,7 @@ class User
 
     public static function showAllUsersFromJson()
     {
-        $tab = json_decode(file_get_contents(USERS_JSON));
+        $tab = json_decode(file_get_contents(self::USERS_JSON));
         foreach ($tab as $val) {
             echo "<p>" . $val->username . " " . $val->fullName . " " . $val->dateCreated . "</p>";
         }
@@ -48,7 +49,7 @@ class User
 
     public static function showAllUsersFromXml()
     {
-        $allUsers = simplexml_load_file('users.xml');
+        $allUsers = simplexml_load_file(self::USERS_XML);
         echo "<ul>";
         foreach ($allUsers as $user):
             $username = $user->username;
@@ -73,14 +74,14 @@ class User
 
     function saveToJson()
     {
-        $tab = json_decode(file_get_contents(USERS_JSON), true);
+        $tab = json_decode(file_get_contents(self::USERS_JSON), true);
         array_push($tab, $this->toArray());
-        file_put_contents(USERS_JSON, json_encode($tab));
+        file_put_contents(self::USERS_JSON, json_encode($tab));
     }
 
     function saveToXml()
     {
-        $xml = simplexml_load_file('users.xml'); // wczytujemy plik XML:
+        $xml = simplexml_load_file(self::USERS_XML); // wczytujemy plik XML:
         $xmlCopy = $xml->addChild("user"); // dodajemy nowy element user (jako child)
         // do elementu dodajemy jego właściwości o określonej nazwie i treści
         $xmlCopy->addChild("username", $this->getUserName());
@@ -89,7 +90,7 @@ class User
         $xmlCopy->addChild("email", $this->getEmail());
         $xmlCopy->addChild("dateCreated", $this->getDateCreated());
         $xmlCopy->addChild("status", $this->getStatus());
-        $xml->asXML('users.xml'); // zapisujemy zmodyfikowany XML do pliku:
+        $xml->asXML(self::USERS_XML); // zapisujemy zmodyfikowany XML do pliku:
     }
 
     /**
