@@ -18,7 +18,7 @@ include_once "classes/User.php";
         echo "<br><br>";
         $user2 = new User("pk", "123", "Prosiaczek", "prosiaczek@stumilowylas.pl");
         $user2->show();
-        $user2->setUserName("admin");
+        $user2->setUsername("admin");
         $user2->setStatus(User::STATUS_ADMIN);
         echo "<br>";
         $user2->show();

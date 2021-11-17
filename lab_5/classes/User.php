@@ -4,25 +4,25 @@ class User
 {
     const STATUS_ADMIN = 0;
     const STATUS_USER = 1;
-    const USERS_JSON = "users.json";
-    const USERS_XML = "users.xml";
+    protected const USERS_JSON = "users.json";
+    protected const USERS_XML = "users.xml";
 
-    private $userName;
-    private $password;
-    private $fullName;
-    private $email;
-    private DateTime $dateCreated;
-    private int $status;
+    protected $username;
+    protected $password;
+    protected $fullName;
+    protected $email;
+    protected DateTime $dateCreated;
+    protected int $status;
 
     /**
-     * @param $userName
+     * @param $username
      * @param $password
      * @param $fullName
      * @param $email
      */
-    public function __construct($userName, $password, $fullName, $email)
+    public function __construct($username, $password, $fullName, $email)
     {
-        $this->userName = $userName;
+        $this->username = $username;
         $this->password = password_hash($password, PASSWORD_BCRYPT);
         $this->fullName = $fullName;
         $this->email = $email;
@@ -32,7 +32,7 @@ class User
 
     public function show()
     {
-        echo $this->getUserName() . " " .
+        echo $this->getUsername() . " " .
             $this->getFullName() . " " .
             $this->getEmail() . " " .
             $this->getDateCreated() . " " .
@@ -63,7 +63,7 @@ class User
     function toArray(): array
     {
         return [
-            "username" => $this->getUserName(),
+            "username" => $this->getUsername(),
             "password" => $this->getPassword(),
             "fullName" => $this->getFullName(),
             "email" => $this->getEmail(),
@@ -84,7 +84,7 @@ class User
         $xml = simplexml_load_file(self::USERS_XML); // wczytujemy plik XML:
         $xmlCopy = $xml->addChild("user"); // dodajemy nowy element user (jako child)
         // do elementu dodajemy jego właściwości o określonej nazwie i treści
-        $xmlCopy->addChild("username", $this->getUserName());
+        $xmlCopy->addChild("username", $this->getUsername());
         $xmlCopy->addChild("password", $this->getPassword());
         $xmlCopy->addChild("fullName", $this->getFullName());
         $xmlCopy->addChild("email", $this->getEmail());
@@ -96,17 +96,17 @@ class User
     /**
      * @return mixed
      */
-    public function getUserName()
+    public function getUsername()
     {
-        return $this->userName;
+        return $this->username;
     }
 
     /**
-     * @param mixed $userName
+     * @param mixed $username
      */
-    public function setUserName($userName): void
+    public function setUsername($username): void
     {
-        $this->userName = $userName;
+        $this->username = $username;
     }
 
     /**
