@@ -1,6 +1,6 @@
 <?php
 include_once "functions.php";
-include_once "classes/DB.php";
+include_once "classes/Database.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +76,7 @@ include_once "classes/DB.php";
 
     <div>
         <?php
-        $db = new DB("localhost", "root", "", "klienci");
+        $db = new Database("localhost", "root", "", "klienci");
         actionSwitcher($db);
         ?>
     </div>

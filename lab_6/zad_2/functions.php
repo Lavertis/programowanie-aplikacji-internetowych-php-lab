@@ -1,6 +1,6 @@
 <?php
 
-function actionSwitcher(DB $db)
+function actionSwitcher(Database $db)
 {
     $action = filter_input(INPUT_POST, "submit");
     if (!$action) return;
@@ -46,14 +46,14 @@ function getClientsInHtmlTable(array $fields, array $clients): string
     return $data;
 }
 
-function showAllClients(DB $db)
+function showAllClients(Database $db)
 {
     $fields = ["Nazwisko", "Zamowienie"];
     $clients = $db->select("klienci", $fields);
     echo getClientsInHtmlTable($fields, $clients);
 }
 
-function showClientsWithOrder(DB $db, string $order)
+function showClientsWithOrder(Database $db, string $order)
 {
     $fields = ["Nazwisko", "Zamowienie"];
     $clients = $db->select("klienci", $fields, "Zamowienie LIKE '%$order%'");
@@ -64,7 +64,7 @@ function getValidatedData(): array
 {
     $args = [
         'surname' => ['filter' => FILTER_VALIDATE_REGEXP, 'options' => ['regexp' => '/^[A-Z]{1}[a-ząęłńśćźżó-]{1,25}$/']],
-        'age' => ['filter' => FILTER_VALIDATE_INT, 'options' => ['min_range' => 12, 'max_range' => 40]],
+        'age' => ['filter' => FILTER_VALIDATE_INT, 'options' => ['min_range' => 12, 'max_range' => 60]],
         'country' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
         'email' => FILTER_VALIDATE_EMAIL,
         'courses' => ['filter' => FILTER_SANITIZE_FULL_SPECIAL_CHARS, 'flags' => FILTER_REQUIRE_ARRAY],
@@ -84,7 +84,7 @@ function getValidatedData(): array
     return [$isDataCorrect, $dataArr, $errors];
 }
 
-function addNewClient(DB $db): ?string
+function addNewClient(Database $db): ?string
 {
     echo "<h3>Dodawanie do bazy danych:</h3>";
     list($isDataCorrect, $data, $errors) = getValidatedData();
@@ -105,7 +105,7 @@ function addNewClient(DB $db): ?string
     return $db->insert("klienci", $values);
 }
 
-function showStatistics($db)
+function showStatistics(Database $db)
 {
     $data = $db->select("klienci", "Wiek");
     $orderCount = count($data);

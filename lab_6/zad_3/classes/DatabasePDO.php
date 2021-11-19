@@ -4,7 +4,7 @@ class DatabasePDO
 {
     private ?PDO $dbh; // uchwyt do BD
 
-    public function __construct($dsn, $username, $password)
+    public function __construct(string $dsn, string $username, string $password)
     {
         try {
             $this->dbh = new PDO($dsn, $username, $password, [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]);
