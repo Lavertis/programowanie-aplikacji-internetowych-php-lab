@@ -15,7 +15,7 @@ include_once "classes/Database.php";
     <form action="index.php" method="post">
         <table>
             <tr>
-                <td><label for="surname">Nazwisko:</label></td>
+                <td><label for="surname">Nazwisko</label></td>
                 <td><input type="text" name="surname" id="surname"></td>
             </tr>
             <tr>
@@ -70,6 +70,13 @@ include_once "classes/Database.php";
             <button type="submit" name="submit" value="show-cpp-clients">CPP</button>
             <button type="submit" name="submit" value="show-java-clients">Java</button>
             <button type="submit" name="submit" value="statistics">Statystyki</button>
+        </div>
+
+        <h4>Usuwanie:</h4>
+        <div>
+            <label for="id">Id</label>
+            <input type="number" name="id" id="id">
+            <button type="submit" name="submit" value="delete-client">Delete</button>
         </div>
     </form>
     <br>

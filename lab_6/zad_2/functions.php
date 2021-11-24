@@ -12,6 +12,9 @@ function actionSwitcher(Database $db)
         case "add-new-client" :
             echo addNewClient($db);
             break;
+        case "delete-client":
+            echo deleteClient($db);
+            break;
         case "show-cpp-clients":
             showClientsWithOrder($db, "CPP");
             break;
@@ -48,14 +51,14 @@ function getClientsInHtmlTable(array $fields, array $clients): string
 
 function showAllClients(Database $db)
 {
-    $fields = ["Nazwisko", "Zamowienie"];
+    $fields = ["Id", "Nazwisko", "Zamowienie"];
     $clients = $db->select("klienci", $fields);
     echo getClientsInHtmlTable($fields, $clients);
 }
 
 function showClientsWithOrder(Database $db, string $order)
 {
-    $fields = ["Nazwisko", "Zamowienie"];
+    $fields = ["Id", "Nazwisko", "Zamowienie"];
     $clients = $db->select("klienci", $fields, "Zamowienie LIKE '%$order%'");
     echo getClientsInHtmlTable($fields, $clients);
 }
@@ -101,6 +104,13 @@ function addNewClient(Database $db): ?string
             array_push($values, "'" . $item . "'");
     }
     return $db->insert("klienci", $fields, $values);
+}
+
+function deleteClient(Database $db): string
+{
+    $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+    $db->delete("klienci", $id);
+    return "Usunięto Id = $id, jeśli takie było.";
 }
 
 function showStatistics(Database $db)

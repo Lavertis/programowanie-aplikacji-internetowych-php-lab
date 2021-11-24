@@ -49,4 +49,10 @@ class DatabasePDO
         $sql = "INSERT INTO $tableName ($fieldsAsStr) VALUES ($valuesAsStr)";
         return $this->dbh->query($sql);
     }
+
+    public function delete(string $tableName, int $id): bool|PDOStatement
+    {
+        $sql = "DELETE FROM $tableName WHERE Id=$id";
+        return $this->dbh->query($sql);
+    }
 }
