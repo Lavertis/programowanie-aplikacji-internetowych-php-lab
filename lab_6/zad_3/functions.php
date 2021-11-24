@@ -92,17 +92,15 @@ function addNewClient(DatabasePDO $db): bool|PDOStatement|null
         echo "<br>Niepoprawne dane: $errors";
         return null;
     }
-
-    $values = "NULL";
+    $fields = ["Nazwisko", "Wiek", "Panstwo", "Email", "Zamowienie", "Platnosc"];
+    $values = [];
     foreach ($data as $item) {
-        $values .= ", '";
         if (is_array($item))
-            $values .= implode(",", $item);
+            array_push($values, "'" . implode(",", $item) . "'");
         else
-            $values .= $item;
-        $values .= "'";
+            array_push($values, "'" . $item . "'");
     }
-    return $db->insert("klienci", $values);
+    return $db->insert("klienci", $fields, $values);
 }
 
 function showStatistics(DatabasePDO $db)

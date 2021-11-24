@@ -58,7 +58,7 @@ include_once "classes/Database.php";
             <input type="radio" name="payment" id="visa" value="Visa">
             <label for="visa">Visa</label>
             <input type="radio" name="payment" id="transfer" value="Przelew">
-            <label for="transfer">Przelew bankowy</label>
+            <label for="transfer">Przelew</label>
         </div>
         <br>
 
