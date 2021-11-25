@@ -37,12 +37,25 @@ class DatabasePDO
                 array_push($arr, $client);
             }
         }
-        return $arr;
+        if (count($arr) == 1)
+            return $arr[0];
+        else
+            return $arr;
     }
 
-    public function insert(string $tableName, string $values): bool|PDOStatement
+    public function insert(string $tableName, array|string $fields, array $values): PDOStatement|bool
     {
-        $sql = "INSERT INTO $tableName VALUES ($values)";
+        if (!is_array($fields))
+            $fields = array($fields);
+        $fieldsAsStr = implode(",", $fields);
+        $valuesAsStr = implode(",", $values);
+        $sql = "INSERT INTO $tableName ($fieldsAsStr) VALUES ($valuesAsStr)";
+        return $this->dbh->query($sql);
+    }
+
+    public function delete(string $tableName, int $id): bool|PDOStatement
+    {
+        $sql = "DELETE FROM $tableName WHERE Id=$id";
         return $this->dbh->query($sql);
     }
 }

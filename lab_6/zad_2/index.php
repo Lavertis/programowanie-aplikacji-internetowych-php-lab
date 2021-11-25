@@ -15,7 +15,7 @@ include_once "classes/Database.php";
     <form action="index.php" method="post">
         <table>
             <tr>
-                <td><label for="surname">Nazwisko:</label></td>
+                <td><label for="surname">Nazwisko</label></td>
                 <td><input type="text" name="surname" id="surname"></td>
             </tr>
             <tr>
@@ -58,7 +58,7 @@ include_once "classes/Database.php";
             <input type="radio" name="payment" id="visa" value="Visa">
             <label for="visa">Visa</label>
             <input type="radio" name="payment" id="transfer" value="Przelew">
-            <label for="transfer">Przelew bankowy</label>
+            <label for="transfer">Przelew</label>
         </div>
         <br>
 
@@ -72,8 +72,16 @@ include_once "classes/Database.php";
             <button type="submit" name="submit" value="statistics">Statystyki</button>
         </div>
     </form>
-    <br>
 
+    <form action="index.php" method="post">
+        <h4>Usuwanie:</h4>
+        <div>
+            <label for="id">Id</label>
+            <input type="number" name="id" id="id" required>
+            <button type="submit" name="submit" value="delete-client">Delete</button>
+        </div>
+    </form>
+    <br>
     <div>
         <?php
         $db = new Database("localhost", "root", "", "klienci");

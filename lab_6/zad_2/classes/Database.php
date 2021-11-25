@@ -41,12 +41,19 @@ class Database
             }
             $result->close(); // zwolnij pamięć
         }
-        return $arr;
+        if (count($arr) == 1)
+            return $arr[0];
+        else
+            return $arr;
     }
 
-    public function insert(string $tableName, string $values): mysqli_result|bool
+    public function insert(string $tableName, array|string $fields, array $values): mysqli_result|bool
     {
-        $sql = "INSERT INTO $tableName VALUES ($values)";
+        if (!is_array($fields))
+            $fields = array($fields);
+        $fieldsAsStr = implode(",", $fields);
+        $valuesAsStr = implode(",", $values);
+        $sql = "INSERT INTO $tableName ($fieldsAsStr) VALUES ($valuesAsStr)";
         return $this->mysqli->query($sql);
     }
 
