@@ -1,7 +1,7 @@
 <?php
-include_once "../classes/Database.php";
-include_once "../classes/User.php";
-include_once "../classes/UserManager.php"
+include_once "classes/Database.php";
+include_once "classes/User.php";
+include_once "classes/UserManager.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">

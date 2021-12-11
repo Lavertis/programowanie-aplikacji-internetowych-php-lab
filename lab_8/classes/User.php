@@ -98,7 +98,7 @@ class User
      */
     public function getDate(): string
     {
-        return $this->date->format("Y-m-d");
+        return $this->date->format("Y-m-d H:i:s");
     }
 
     /**
