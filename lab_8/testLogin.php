@@ -20,15 +20,16 @@ include_once "classes/UserManager.php"
     <?php
     session_start();
     $db = new Database("localhost", "root", "", "klienci");
+    $um = new UserManager();
 
     $sessionId = session_id();
-    $userId = $db->select("logged_in_users", "userId", "sessionId='$sessionId'");
-    if (!$userId)
+    $userId = $um->getLoggedInUser($db, $sessionId);
+    if ($userId == -1)
         header("location:loginProcess.php");
 
     echo "<p><a href='loginProcess.php?akcja=wyloguj'>Wyloguj</a></p>";
     echo "<h3>Dane zalogowanego użytkownika</h3>";
-    $userData = $db->select("users", "*", "ID=$userId");
+    $userData = $db->select("users", "*", "ID='$userId'");
     foreach ($userData as $key => $value)
         echo "$key = $value<br>";
     ?>

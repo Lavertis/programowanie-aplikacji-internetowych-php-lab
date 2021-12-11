@@ -61,12 +61,12 @@ class UserManager
         session_destroy();
     }
 
-    public function getLoggedInUser(Database $db, int $id): int
+    public function getLoggedInUser(Database $db, string $sessionId): int
     {
-        $res = $db->select('logged_in_users', "userId", "userId=$id");
-        if (!$res)
+        $userId = $db->select('logged_in_users', "userId", "sessionId='$sessionId'");
+        if (!$userId)
             return -1;
         else
-            return $res;
+            return $userId;
     }
 }
